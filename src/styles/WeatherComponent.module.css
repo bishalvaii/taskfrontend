@@ -1,0 +1,49 @@
+    /* WeatherComponent.module.css */
+
+.weatherContainer {
+    margin-top: 20px;
+  }
+  
+  .heading {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .forecastContainer {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .dayContainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+  }
+  
+  .date {
+    font-weight: bold;
+  }
+  
+  .temp {
+    margin: 5px 0;
+  }
+  
+  .feelsLike {
+    margin: 5px 0;
+  }
+  
+  .precip {
+    margin: 5px 0;
+  }
+  
+  .condition {
+    margin: 5px 0;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  

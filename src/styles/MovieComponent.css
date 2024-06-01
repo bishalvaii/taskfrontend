@@ -1,0 +1,33 @@
+/* components/MovieComponent.css */
+
+.movie-container {
+    margin-top: 20px;
+  }
+  
+  .movie-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .movie-card {
+    background-color: #a6a0a0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .movie-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .movie-release-date {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .movie-overview {
+    margin-top: 10px;
+  }
+  

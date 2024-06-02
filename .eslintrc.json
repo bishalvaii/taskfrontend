@@ -1,3 +1,19 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb-typescript"
+  ],
+  "plugins": [
+    "import",
+    "react"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "overrides": [
+    {
+      "files": ["*.tsx", "*.ts"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": ["error"]
+      }
+    }
+  ]
 }

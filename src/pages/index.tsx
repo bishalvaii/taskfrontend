@@ -8,10 +8,9 @@ import WeatherComponent from '@/components/WeatherComponent';
 
 const DashboardPage: React.FC = () => {
   const router = useRouter();
-  const [movieData, setMovieData] = useState(null);
 
   useEffect(() => {
-    // Check if user is authenticated
+    // Check if user is authenticated or not
     const token = Cookies.get('token');
     if (!token) {
       router.push('/login');
@@ -22,23 +21,24 @@ const DashboardPage: React.FC = () => {
 
   return (
     <div>
-      <h1>Welcome to Your Dashboard</h1>
+      <h1>Welcome to API Collections</h1>
+      <h2 style={{marginTop: 3}}>Scroll down to see the weather, , cricket and music data</h2>
       <div>
-        <h2>Weather Forecast</h2>
+        <h2 style={{ backgroundColor: 'green', marginTop: 10}}>Weather Forecast</h2>
         <WeatherComponent />
       </div>
        <div>
-        <h2>Movies</h2>
+        <h2  style={{ backgroundColor: 'green',marginTop: 10}}>Movies</h2>
         <MovieComponent />
       </div>
       <div>
-        <h2>News</h2>
+        <h2  style={{ backgroundColor: 'green',marginTop: 10}}>Cricket News</h2>
         <NewsComponent />
       </div>
-      {/* <div>
-        <h2>Music</h2>
+      <div>
+        <h2  style={{ backgroundColor: 'green',marginTop: 10}}>Music</h2>
         <MusicComponent /> 
-      </div> */}
+      </div>
     </div>
   );
 };

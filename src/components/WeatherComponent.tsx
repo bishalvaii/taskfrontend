@@ -1,11 +1,33 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchWeather } from '../store/weatherSlice';
-import styles from '../styles/WeatherComponent.module.css'; // Import CSS module for component-specific styles
+import { fetchWeather } from '../slices/weatherSlice';
+import styles from '../styles/WeatherComponent.module.css'; 
+
+//interfaces for structure of the data
+interface WeatherDay {
+  date: string;
+  maxTemp: number;
+  minTemp: number;
+  maxFeelsLikeTemp: number;
+  minFeelsLikeTemp: number;
+  precipProb: number;
+  symbolPhrase: string;
+ 
+}
+
+interface WeatherState {
+  status: 'loading' | 'succeeded' | 'failed';
+  data?: {
+    forecast: WeatherDay[];
+    
+  };
+ 
+}
+
 
 const WeatherComponent: React.FC = () => {
   const dispatch = useDispatch();
-  const weather = useSelector((state: any) => state.weather);
+  const weather = useSelector((state: { weather: WeatherState }) => state.weather);
 
   useEffect(() => {
     dispatch(fetchWeather());
@@ -17,7 +39,7 @@ const WeatherComponent: React.FC = () => {
       {weather.status === 'loading' && <p>Loading...</p>}
       {weather.status === 'succeeded' && weather.data && (
         <div className={styles.forecastContainer}>
-          {weather.data.forecast.map((day: any) => (
+          {weather.data.forecast.map((day: WeatherDay) => (
             <div key={day.date} className={styles.dayContainer}>
               <p className={styles.date}>{day.date}</p>
               <p className={styles.temp}>Max: {day.maxTemp}°C / Min: {day.minTemp}°C</p>

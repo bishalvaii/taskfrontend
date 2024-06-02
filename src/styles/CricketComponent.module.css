@@ -1,0 +1,32 @@
+.container {
+    padding: 20px;
+    background-color: #aea9a9;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 1200px;
+    margin-left: 40px;
+    margin-top:20px
+  }
+  
+  .title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .matchCard {
+    background-color: #171515;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+  }
+  
+  .matchCard p {
+    margin: 5px 0;
+  }
+  
+  .matchCard p span {
+    font-weight: bold;
+  }
+  

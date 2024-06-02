@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 export function middleware(request: NextRequest) {
   const token = request.cookies.get('token');
 
-  // Allow access to login page without authentication
+  // Allow access to login page without authentication if token is found in cookies
   if (request.nextUrl.pathname.startsWith('/login')) {
     return NextResponse.next();
   }
@@ -17,6 +17,8 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
+
+// middleware applies to this root route only '/'
 export const config = {
-  matcher: ['/', '/dashboard/:path*'], // Apply to all routes that need protection
+  matcher: ['/'], 
 };

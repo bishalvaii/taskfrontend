@@ -8,13 +8,21 @@ const options = {
 };
 
 const fetchWeatherData = async () => {
+  const weatherData = JSON.parse(localStorage.getItem('weatherData'));
+  if (weatherData && Date.now() - weatherData.timestamp < 3600000) {
+    return weatherData.data; // Return cached data if it's not expired
+  }
+
   try {
     const response = await fetch(url, options);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
     const data = await response.json();
-    console.log(data.forecast[0].minFeelsLikeTemp)
+    
+    // Cache the data in localStorage with a timestamp
+    localStorage.setItem('weatherData', JSON.stringify({ data, timestamp: Date.now() }));
+
     return data;
   } catch (error) {
     console.error('Failed to fetch weather data:', error);
